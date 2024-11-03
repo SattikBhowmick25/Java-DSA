@@ -6,10 +6,10 @@ import java.util.List;
 public class ArrayOperations {
     public static void main(String[] args) {
         int[] arr1={1,3,4,5};
-        int[] arr2={3,5,10,15};
-        int[] nums={0,1,0,3,12};
-        int[] dist={2,2,0,1,1,0,0,1,2,0};
-        int[] merged=mergeSorted(arr1,arr2);
+        //int[] arr2={3,5,10,15};
+        //int[] nums={0,1,0,3,12};
+        //int[] dist={2,2,0,1,1,0,0,1,2,0};
+        //int[] merged=mergeSorted(arr1,arr2);
         int[] ones={1,1,0,0,1,1,1,0,1,1,1,1};
         int[] oneTwo={1,1,10,3,3,4,4};
         /*System.out.println(Arrays.toString(merged));
