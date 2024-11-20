@@ -6,7 +6,7 @@ public class PrefixInfix{
 
         for(int l=prefix.length()-1;l>=0;l--){
             char c=prefix.charAt(l);
-            if( (c>='A' && c<='Z') && (c>='a' && c<='z') && (c>='0' && c<='9') ){
+            if( (c>='A' && c<='Z') || (c>='a' && c<='z') || (c>='0' && c<='9') ){
                 st.push(Character.toString(c));
             }
             else{
