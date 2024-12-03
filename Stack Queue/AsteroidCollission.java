@@ -18,9 +18,8 @@ public class AsteroidCollission {
             }
         }
         ans=new int[st.size()];
-        for(int i=0;i<st.size();i++){
-            ans[st.size()-i-1]=st.peek();
-            st.pop();
+        for(int i=0;i<ans.length;i++){
+            ans[ans.length-i-1]=st.pop();
         }
         return ans;
     }
