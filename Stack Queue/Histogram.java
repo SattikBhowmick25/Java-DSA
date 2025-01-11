@@ -17,15 +17,15 @@ public class Histogram {
         int maxArea=0;
         int n=height.length;
         Stack<Integer> st=new Stack<>();
-        int pse=-1,nse=n;
+        int pse,nse;
         int element=0;
         for(int i=0;i<n;i++){
-            while(!st.isEmpty() && height[st.peek()] > height[i]){
+            while(!st.isEmpty() && (i==n || height[st.peek()] > height[i]) ){
                 element=st.peek();
                 st.pop();
                 nse=i;
                 pse=st.isEmpty()?-1:st.peek();
-                maxArea=Math.max(maxArea, element*(nse-pse-1));
+                maxArea=Math.max(maxArea, height[element]*(nse-pse-1));
             }
             st.push(i);
         }
@@ -34,7 +34,7 @@ public class Histogram {
             element=st.peek();
             st.pop();
             pse=st.isEmpty()?-1:st.peek();
-            maxArea=Math.max(maxArea,(nse-pse-1)*height[element])
+            maxArea=Math.max(maxArea,(nse-pse-1)*height[element]);
         }
         return maxArea;
     }
