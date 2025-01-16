@@ -1,5 +1,4 @@
 public class ValidParenthesis{
-    class Solution {
         public boolean checkValidString(String s) {
             int minOpen = 0; // Minimum open parentheses needed
             int maxOpen = 0; // Maximum open parentheses possible
@@ -25,6 +24,4 @@ public class ValidParenthesis{
             // Valid if minOpen is 0
             return minOpen == 0;
         }
-    }
-    
 }
