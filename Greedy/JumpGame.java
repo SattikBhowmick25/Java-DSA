@@ -11,16 +11,16 @@ public class JumpGame {
         return true;
     }
     public int jump(int[] nums) {
+        int l=0,r=0,jumpCount=0;
         int n=nums.length;
-        int maxJump=0;
-        int jumpCount=0;
-        for(int i=0;i<n;i++){
-            if(i>maxJump){
-                return -1;
+        while(r<n-1){
+            int farthest=0;
+            for(int ind=l;ind<=r;ind++){
+                farthest=Math.max(farthest, ind+nums[ind]);
             }
-            if(maxJump<i+nums[i]){
-                jumpCount++;
-            }
+            l=r+1;
+            r=farthest;
+            jumpCount++;
         }
         return jumpCount;
     }
