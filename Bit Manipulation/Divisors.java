@@ -13,5 +13,12 @@ public class Divisors {
         }
         return div;
     }        
+    public static void main(String[] args) {
+        List<Integer> ans=findDivisors(68);
+        for(int f:ans){
+            System.out.print(f+" ");
+        }
+        
+    }
 }
 
