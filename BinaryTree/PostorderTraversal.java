@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class TreeNode {
     int val;
@@ -25,5 +26,27 @@ public class PostorderTraversal {
         postorder(root.left,postList);
         postorder(root.right,postList);
         postList.add(root.val);
+    }
+
+    //Iterative postorder traversal using two stacks
+    public static List<Integer> iterativePostorder(TreeNode root){
+        List<Integer> postorder=new ArrayList<>();
+        if(root==null)  return postorder;
+
+        Stack<TreeNode> s1=new Stack<>();
+        Stack<TreeNode> s2=new Stack<>();
+
+        s1.push(root);
+
+        while(!s1.isEmpty()){
+            root=s1.pop();
+            s2.push(root);  
+            if(root.left!=null)     s1.push(root.left);
+            if(root.right!=null)     s1.push(root.right);
+        }
+        while(!s2.isEmpty()){
+            postorder.add(s2.pop().val);
+        }
+        return postorder;
     }
 }

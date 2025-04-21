@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public class TreeNode {
     int val;
@@ -25,5 +27,22 @@ public class PreorderTraversal {
         pre.add(root.val);
         preOrder(root.left,pre);
         preOrder(root.right,pre);
+    }
+
+    //Iterative preorder traversal
+    public static List<Integer> iterativePreorder(TreeNode root){
+        List<Integer> order=new ArrayList<>();
+        if(root==null){
+            return order;
+        } 
+        Stack<TreeNode> st=new Stack<>();
+        st.push(root);
+        while(!st.isEmpty()){
+            root=st.pop();
+            order.add(root.value);
+            if(root.left!=null) st.push(root.left);
+            if(root.right!=null) st.push(root.right);
+        }
+        return order;
     }
 }
