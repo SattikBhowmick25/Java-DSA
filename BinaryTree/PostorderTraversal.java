@@ -49,4 +49,32 @@ public class PostorderTraversal {
         }
         return postorder;
     }
+
+    //Iterative postorder using only one stack
+    public static List<Integer> postOrderTwoStacks(TreeNode root){
+        Stack<TreeNode> st=new Stack<>();
+        List<Integer> postorder=new ArrayList<>();
+        TreeNode cur=root;
+        while(curr!=null || !st.isEmpty()){
+            if(cur!=null){
+                st.push(cur);
+                cur=cur.left;
+            }
+            else{
+                TreeNode temp=st.peek();
+                if(temp==null){
+                    temp=st.pop();
+                    postorder.add(temp.val);
+                    while(!st.isEmpty() && temp==st.peek().right){
+                        temp=st.pop();
+                        postorder.add(temp.val);
+                    }
+                }
+                else{
+                    cur=temp;
+                }
+            }
+        }
+        return postorder;
+    }
 }
