@@ -12,14 +12,18 @@ public class TreeNode {
 }
 public class MaxPathSum {
     public int maxPathSum(TreeNode root) {
-        
+        int[] max={Integer.MIN_VALUE};
+        findMaxPathSum(root, max);
+        return max[0];
     }
-    private int finMaxPathSum(TreeNode node,int[] maxPath){
+    private int findMaxPathSum(TreeNode node,int[] maxPath){
         if(node==null)  return 0;
-        int[] leftMaxPath=new int[1];
-        int[] rightMaxPath=new int[1];
 
-        leftMaxPath[0]=Math.max(0,finMaxPathSum(node.left, maxPath));
-        rightMaxPath[0]=Math.max(0,finMaxPathSum(node.right, maxPath));
+        int leftMaxPath=Math.max(0,findMaxPathSum(node.left, maxPath));
+        int rightMaxPath=Math.max(0,findMaxPathSum(node.right, maxPath));
+
+        maxPath[0]=Math.max(maxPath[0],leftMaxPath+rightMaxPath+node.val);
+
+        return Math.max(leftMaxPath,rightMaxPath)+node.val;
     }
 }
