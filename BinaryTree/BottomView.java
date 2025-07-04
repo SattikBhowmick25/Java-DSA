@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 class TreeNode {
@@ -14,8 +13,8 @@ class TreeNode {
     }
 }
 class Pair<K, V> {
-    private final K key;
-    private final V value;
+    private K key;
+    private V value;
 
     public Pair(K key, V value) {
         this.key = key;
@@ -25,41 +24,32 @@ class Pair<K, V> {
     public K getKey() { return key; }
     public V getValue() { return value; }
 }
-
-public class TopView{
-    
-    public List<Integer> topView(TreeNode root) {
+public class BottomView {
+    public List<Integer> bottomView(TreeNode root){
         List<Integer> ans=new ArrayList<>();
         if(root==null){
             return ans;
         }
-        Map<Integer,Integer> mpp=new TreeMap<>();
 
+        Map<Integer,Integer> map=new TreeMap<>();
         Queue<Pair<TreeNode,Integer>> q=new LinkedList<>();
-
         q.add(new Pair<>(root,0));
-
         while(!q.isEmpty()){
             Pair<TreeNode,Integer> pair=q.poll();
             TreeNode node=pair.getKey();
             int line=pair.getValue();
 
-            if(!mpp.containsKey(line)){
-                mpp.put(line,node.val);
-            }
-
+            map.put(line,node.val);
             if(node.left!=null){
-                q.add(new Pair<>(node.left,line-1));
+                q.add(new Pair<>(root.left,line-1));
             }
             if(node.right!=null){
-                q.add(new Pair<>(node.right,line+1));
+                q.add(new Pair<>(root.right,line+1));
             }
         }
-
-        for(int value:mpp.values()){
-            ans.add(value);
+        for(Map.Entry<Integer,Integer> entry: map.entrySet()){
+            ans.add(entry.getValue());
         }
-
         return ans;
-    }   
+    }
 }
