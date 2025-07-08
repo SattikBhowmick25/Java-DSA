@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -55,7 +55,7 @@ public class PostorderTraversal {
         Stack<TreeNode> st=new Stack<>();
         List<Integer> postorder=new ArrayList<>();
         TreeNode cur=root;
-        while(curr!=null || !st.isEmpty()){
+        while(cur!=null || !st.isEmpty()){
             if(cur!=null){
                 st.push(cur);
                 cur=cur.left;

@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -39,7 +38,7 @@ public class PreorderTraversal {
         st.push(root);
         while(!st.isEmpty()){
             root=st.pop();
-            order.add(root.value);
+            order.add(root.val);
             if(root.left!=null) st.push(root.left);
             if(root.right!=null) st.push(root.right);
         }

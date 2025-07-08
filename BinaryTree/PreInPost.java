@@ -2,9 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import MinStack.Pair;
-
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -16,6 +14,20 @@ public class TreeNode {
         this.right = right;
     }
 }
+class Pair<K, V> {
+    private final K key;
+    private V value;
+
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+    public void setValue(V value){
+        this.value=value;
+    }
+    public K getKey() { return key; }
+    public V getValue() { return value; }
+}
 public class PreInPost {
     public static List<List<Integer>> preInPostOrder(TreeNode root){
         if(root==null)  return new ArrayList<>();
@@ -24,7 +36,7 @@ public class PreInPost {
         List<Integer> post=new ArrayList<>();
         Stack<Pair<TreeNode,Integer>> st=new Stack<>();
         
-        st.push(new Pair(root,1));
+        st.push(new Pair<>(root,1));
         while(!st.isEmpty()){
             Pair<TreeNode,Integer> it=st.pop();
 
