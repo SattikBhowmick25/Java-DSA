@@ -19,7 +19,7 @@ public class ShortestUnitDistance{
         dist[0]=0;
         Queue<Integer> q=new LinkedList<>();
         q.add(0);
-        
+                
         while(!q.isEmpty()){
             int node=q.poll();
             q.remove();
