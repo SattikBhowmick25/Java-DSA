@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CourseSchedule {
+public class CourseSchedule2 {
 
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         List<List<Integer>> adj = new ArrayList<>();
