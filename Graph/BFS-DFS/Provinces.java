@@ -28,4 +28,23 @@ public class Provinces {
         }
         return countProvinces;
     }
+
+    void dfs(int[][] adj, boolean visited[], int node) {
+        visited[node] = true;
+        for (int j = 0; j < adj.length; j++) {
+            dfs(adj, visited, j);
+        }
+    }
+
+    public int findCircleNumDFS(int[][] isConnected) {
+        boolean[] visited = new boolean[isConnected.length];
+        int countProvinces = 0;
+        for (int i = 0; i < isConnected.length; i++) {
+            if (!visited[i]) {
+                dfs(isConnected, visited, i);
+                countProvinces++;
+            }
+        }
+        return countProvinces;
+    }
 }
